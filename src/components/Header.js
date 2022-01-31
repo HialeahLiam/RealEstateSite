@@ -4,89 +4,124 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const rightNavLinks = [
-  {
-    text: 'About',
-    route: '/about',
-  }, {
-    text: 'Random',
-    route: '/',
-  },
-
-];
-
-const leftNavLinks = [{
-  text: 'Sellers',
-  route: '/seller',
-},
-{
-  text: 'Buyers',
-  route: '/buyer',
-}];
+const navLinkCssProperties = {
+  mx: 5,
+  fontFamily: 'Sahitya',
+  fontSize: '23px',
+};
 
 function Header() {
   return (
     /*
     position='static' means app bar does not move with scrolling
     */
-    <AppBar position="static" variant="elevation" sx={{ backgroundColor: 'primary.dark', mb: 10 }}>
-      <Toolbar sx={{ justifyContent: 'center' }}>
+    <AppBar
+      position="static"
+      variant="elevation"
+      sx={{
+        backgroundColor: 'primary.main',
+      }}
+    >
+      <Toolbar
+        sx={{
+          justifyContent: 'center',
+          height: '104px',
+        }}
+      >
 
-        <Grid container>
+        <MuiLink
+          component={Link}
+          to="/about"
+          color="inherit"
+          underline="none"
+        >
+          <Typography
+            sx={{
+              mx: navLinkCssProperties.mx,
+              fontFamily: navLinkCssProperties.fontFamily,
+              fontSize: navLinkCssProperties.fontSize,
+            }}
+          >
+            About
 
-          <Grid item container alignItems="center" justifyContent="center" xs={4}>
+          </Typography>
+        </MuiLink>
 
-            {leftNavLinks.map((link) => (
-              <MuiLink
-                color="white"
-                underline="none"
-                component={Link}
-                to={link.route}
-                sx={{ mx: 3 }}
-                key={link.text}
+        <MuiLink
+          component={Link}
+          to="/"
+          color="inherit"
+          underline="none"
+        >
+          <Typography
+            sx={{
+              mx: navLinkCssProperties.mx,
+              fontFamily: navLinkCssProperties.fontFamily,
+              fontSize: navLinkCssProperties.fontSize,
+            }}
+          >
+            Contact
 
-              >
-                <Typography variant="button">{link.text}</Typography>
-              </MuiLink>
-            ))}
-          </Grid>
+          </Typography>
+        </MuiLink>
 
-          <Grid item xs={4}>
-            <MuiLink
-              color="white"
-              underline="none"
-              component={Link}
-              to="/"
-              sx={{ mx: 5 }}
-            >
-              <Typography
-                align="center"
-                fontSize={25}
-                variant="h1"
-                color="secondary.main"
-              >
-                Angela Idrovo
+        <MuiLink
+          component={Link}
+          to="/"
+          color="secondary.main"
+          underline="none"
 
-              </Typography>
-            </MuiLink>
-          </Grid>
+        >
+          <Typography
+            fontFamily="Rufina"
+            fontSize="30px"
+            sx={{
+              border: 2,
+              borderColor: 'secondary.main',
+              px: 3,
+              py: 1,
+              mx: 20,
+            }}
+          >
+            Angela Idrovo
+          </Typography>
+        </MuiLink>
 
-          <Grid item container alignItems="center" justifyContent="center" xs={4}>
+        <MuiLink
+          component={Link}
+          to="/seller"
+          color="inherit"
+          underline="none"
+        >
+          <Typography
+            sx={{
+              mx: navLinkCssProperties.mx,
+              fontFamily: navLinkCssProperties.fontFamily,
+              fontSize: navLinkCssProperties.fontSize,
+            }}
+          >
+            Seller
 
-            {rightNavLinks.map((link) => (
-              <MuiLink
-                color="white"
-                underline="none"
-                component={Link}
-                to={link.route}
-                sx={{ mx: 3 }}
-                key={link.text}
-              >
-                <Typography variant="button">{link.text}</Typography>
-              </MuiLink>
-            ))}
-          </Grid>
-        </Grid>
+          </Typography>
+        </MuiLink>
+
+        <MuiLink
+          component={Link}
+          to="/buyer"
+          color="inherit"
+          underline="none"
+        >
+          <Typography
+            sx={{
+              mx: navLinkCssProperties.mx,
+              fontFamily: navLinkCssProperties.fontFamily,
+              fontSize: navLinkCssProperties.fontSize,
+            }}
+          >
+            Buyer
+
+          </Typography>
+        </MuiLink>
 
       </Toolbar>
     </AppBar>
